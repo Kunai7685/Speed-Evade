@@ -1,0 +1,137 @@
+if _G.SpeedExploit == true then game:GetService("StarterGui"):SetCore("SendNotification", {Title = "System"; Text = [[You already execute this script. If your gonna restart the script just rejoin, by typing on the chat "|/"]]; Duration = 5;}) return else _G.SpeedExploit = true; end -- Checks
+Ver = 1.0
+UserInputService = game:GetService("UserInputService")
+TweenService = game:GetService("TweenService")
+RunService = game:GetService("RunService")
+Sprinting = false
+FlashSprint = false
+CustomSprint = false
+local function Rejoin_ ()
+	local TeleportService = game:GetService("TeleportService")
+	TeleportService:Teleport(game.PlaceId, game.Players.LocalPlayer)
+end
+function Outdated_Getting() 
+	coroutine.resume(coroutine.create(function()
+		local SpeedUI = Instance.new("ScreenGui")
+		local MmFrame = Instance.new("Frame")
+		local UICorner = Instance.new("UICorner")
+		local MessageTextLabel = Instance.new("TextLabel")
+		local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+		local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+
+		SpeedUI.Name = "Speed"
+		SpeedUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+		SpeedUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+		SpeedUI.ResetOnSpawn = false
+
+		MmFrame.Name = "MmFrame"
+		MmFrame.Parent = SpeedUI
+		MmFrame.BackgroundColor3 = Color3.fromRGB(194, 126, 48)
+		MmFrame.BackgroundTransparency = 0.500
+		MmFrame.Position = UDim2.new(0.370940179, 0, 1, 0)
+		TweenService:Create(MmFrame, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out, 0, false, 0), {Position = UDim2.new(0.370940179, 0, 0.426240861, 0)}):Play()
+		MmFrame.Size = UDim2.new(0.307692319, 0, 0.196969703, 0)
+
+		UICorner.CornerRadius = UDim.new(0.100000001, 1)
+		UICorner.Parent = MmFrame
+
+		MessageTextLabel.Name = "MessageTextLabel"
+		MessageTextLabel.Parent = MmFrame
+		MessageTextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		MessageTextLabel.BackgroundTransparency = 1.000
+		MessageTextLabel.Position = UDim2.new(0, 0, 0.348508626, 0)
+		MessageTextLabel.Size = UDim2.new(0.999999821, 0, 0.292517006, 0)
+		MessageTextLabel.Font = Enum.Font.GothamBold
+		MessageTextLabel.Text = "Please.. Get the latest version."
+		MessageTextLabel.TextColor3 = Color3.fromRGB(255, 184, 102)
+		MessageTextLabel.TextScaled = true
+		MessageTextLabel.TextSize = 28.000
+		MessageTextLabel.TextWrapped = true
+
+		UITextSizeConstraint.Parent = MessageTextLabel
+		UITextSizeConstraint.MaxTextSize = 21
+
+		UIAspectRatioConstraint.Parent = MmFrame
+		UIAspectRatioConstraint.AspectRatio = 3.077
+		wait(1.5)
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "System";
+			Text = ("Hello, "..game.Players.LocalPlayer.DisplayName.." your about to get Rejoin.");
+			Duration = 5;
+		});
+		wait(1)
+		local TeleportService = game:GetService("TeleportService")
+		TeleportService:Teleport(game.PlaceId, game.Players.LocalPlayer, nil, SpeedUI)
+	end))
+end
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+	if not gameProcessedEvent then
+		if input.KeyCode == _G.EvadeSpeedSettings.Sprint.Key then
+			if _G.EvadeSpeedSettings.Sprint.Toggle == true then
+				if Sprinting == false then
+					Sprinting = true
+					TweenService:Create(game.Players.LocalPlayer.Character.StatChanges.Speed.Sprint, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0), {Value = _G.EvadeSpeedSettings.Sprint.Speed}):Play()
+				else
+					Sprinting = false
+					TweenService:Create(game.Players.LocalPlayer.Character.StatChanges.Speed.Sprint, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0), {Value = _G.EvadeSpeedSettings.Normal.Speed}):Play()
+				end
+			else
+				TweenService:Create(game.Players.LocalPlayer.Character.StatChanges.Speed.Sprint, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0), {Value = _G.EvadeSpeedSettings.Sprint.Speed}):Play()
+			end
+		elseif input.KeyCode == _G.EvadeSpeedSettings.Flash.Key then
+			if _G.EvadeSpeedSettings.Flash.Toggle == true then
+				if FlashSprint == false then
+					FlashSprint = true
+					TweenService:Create(game.Players.LocalPlayer.Character.StatChanges.Speed.Sprint, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0), {Value = _G.EvadeSpeedSettings.Flash.Speed}):Play()
+				else
+					FlashSprint = false
+					TweenService:Create(game.Players.LocalPlayer.Character.StatChanges.Speed.Sprint, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0), {Value = _G.EvadeSpeedSettings.Normal.Speed}):Play()
+				end
+			else
+				TweenService:Create(game.Players.LocalPlayer.Character.StatChanges.Speed.Sprint, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0), {Value = _G.EvadeSpeedSettings.Flash.Speed}):Play()
+			end
+		elseif input.KeyCode == _G.EvadeSpeedSettings.Custom.Key then
+			if _G.EvadeSpeedSettings.Custom.Enabled == true then
+				if _G.EvadeSpeedSettings.Custom.Toggle == true then
+					if CustomSprint == false then
+						CustomSprint = true
+						TweenService:Create(game.Players.LocalPlayer.Character.StatChanges.Speed.Sprint, TweenInfo.new(5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0), {Value = _G.EvadeSpeedSettings.Custom.Speed}):Play()
+					else
+						CustomSprint = false
+						TweenService:Create(game.Players.LocalPlayer.Character.StatChanges.Speed.Sprint, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0), {Value = _G.EvadeSpeedSettings.Normal.Speed}):Play()
+					end
+				else
+					TweenService:Create(game.Players.LocalPlayer.Character.StatChanges.Speed.Sprint, TweenInfo.new(5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0), {Value = _G.EvadeSpeedSettings.Custom.Speed}):Play()
+				end
+			end
+		end
+	end
+end)
+RunService.RenderStepped:Connect(function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame end)
+game.Players.LocalPlayer.Chatted:Connect(function(msg, player)
+	if msg == "|/" then
+		Rejoin_()
+	end;
+end)
+UserInputService.InputEnded:Connect(function(input, gameProcessedEvent)
+	if not gameProcessedEvent then
+		if input.KeyCode == _G.EvadeSpeedSettings.Sprint.Key then
+			if _G.EvadeSpeedSettings.Sprint.Toggle == true then
+			else
+				TweenService:Create(game.Players.LocalPlayer.Character.StatChanges.Speed.Sprint, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0), {Value = _G.EvadeSpeedSettings.Normal.Speed}):Play()
+			end
+		elseif input.KeyCode == _G.EvadeSpeedSettings.Flash.Key then
+			if _G.EvadeSpeedSettings.Flash.Toggle == true then
+			else
+				TweenService:Create(game.Players.LocalPlayer.Character.StatChanges.Speed.Sprint, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0), {Value = _G.EvadeSpeedSettings.Normal.Speed}):Play()
+			end
+		elseif input.KeyCode == _G.EvadeSpeedSettings.Custom.Key then
+			if _G.EvadeSpeedSettings.Custom.Enabled == true then
+				if _G.EvadeSpeedSettings.Custom.Toggle == true then
+				else
+					TweenService:Create(game.Players.LocalPlayer.Character.StatChanges.Speed.Sprint, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0), {Value = _G.EvadeSpeedSettings.Normal.Speed}):Play()
+				end
+			end
+		end
+	end
+end);local Outdated = false;loadstring(game:HttpGetAsync(("https://pastebin.com/raw/DUe2msat")))(); if OriginalSpeedVersion == Ver then else game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Exploit"; Text = "Outdated Version..."; Duration = 5}) Outdated = true end;if Outdated == true then Outdated_Getting() end game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Speed"; Text = ("Hey, "..game.Players.LocalPlayer.DisplayName.." thank you for using this script. Enjoy!"); Duration = 5;});if Outdated == true then return end
