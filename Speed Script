@@ -135,3 +135,18 @@ UserInputService.InputEnded:Connect(function(input, gameProcessedEvent)
 		end
 	end
 end);local Outdated = false;loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/Kunai7685/Speed-Evade/50665bacd59b3de0506e567a0f4486633f88c51f/Speed%20Version")))(); if OriginalSpeedVersion == Ver then else game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Exploit"; Text = "Outdated Version..."; Duration = 5}) Outdated = true end;if Outdated == true then Outdated_Getting() end game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Speed"; Text = ("Hey, "..game.Players.LocalPlayer.DisplayName.." thank you for using this script. Enjoy!"); Duration = 5;});if Outdated == true then return end
+while true do
+	wait(1)
+	loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/Kunai7685/Speed-Evade/50665bacd59b3de0506e567a0f4486633f88c51f/Speed%20Version")))()
+	if KkickEvadeSpeed == true then
+		game.Players.LocalPlayer:Kick("You got kicked.")
+	end; if OriginalSpeedVersion == Ver then
+	else
+		game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Speed Script (Evade)"; Text = "There's a new version!"; Duration = 15})
+		coroutine.resume(coroutine.create(function()
+			wait(1)
+			Rejoin_()
+		end))
+		break
+	end
+end
