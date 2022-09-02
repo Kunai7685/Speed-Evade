@@ -1,4 +1,4 @@
-if _G.SpeedExploit == true then game:GetService("StarterGui"):SetCore("SendNotification", {Title = "System"; Text = [[You already execute this script. If your gonna restart the script just rejoin, by typing on the chat "|/"]]; Duration = 5;}) return else _G.SpeedExploit = true; end -- Checks
+if _G.SpeedExploit == true then game:GetService("StarterGui"):SetCore("SendNotification", {Title = "System"; Text = [[Settings Restarted. If you want to rejoin type in the chat "|/"]]; Duration = 5;}) return else _G.SpeedExploit = true; end -- Checks
 Ver = 1.0
 UserInputService = game:GetService("UserInputService")
 TweenService = game:GetService("TweenService")
